@@ -1,0 +1,162 @@
+{
+    "inbounds": [
+        {
+            "protocol": "socks",
+            "port": 1081,
+            "tag": "fr-xtls-in",
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls"
+                ]
+            },
+            "settings": {
+                "auth": "noauth",
+                "listen": "localhost"
+            }
+        },
+        {
+            "protocol": "socks",
+            "port": 1082,
+            "tag": "fr-mkcp-in",
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls"
+                ]
+            },
+            "settings": {
+                "auth": "noauth",
+                "listen": "localhost"
+            }
+        },
+        {
+            "protocol": "socks",
+            "port": 1083,
+            "tag": "frn-ws-in",
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls"
+                ]
+            },
+            "settings": {
+                "auth": "noauth",
+                "listen": "localhost"
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "vless",
+            "tag": "fr-xtls-out",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "fr.jantacy.top",
+                        "port": 443,
+                        "users": [
+                            {
+                                "id": "你的UUID",
+                                "flow": "xtls-rprx-direct",
+                                "encryption": "none"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "xtls"
+            }
+        },
+        {
+            "protocol": "vless",
+            "tag": "fr-mkcp-out",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "fr.jantacy.top",
+                        "port": 9997,
+                        "users": [
+                            {
+                                "id": "你的UUID",
+                                "encryption": "none"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "mkcp",
+                "kcpSettings": {
+                    "mtu": 1350,
+                    "tti": 20,
+                    "uplinkCapacity": 100,
+                    "downlinkCapacity": 100,
+                    "congestion": false,
+                    "header": {
+                        "type": "wechat-video"
+                    },
+                    "seed": "jantacy"
+                }
+            }
+        },
+        {
+            "protocol": "vless",
+            "tag": "frn-ws-out",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "frn.jantacy.top",
+                        "port": 443,
+                        "users": [
+                            {
+                                "id": "你的UUID",
+                                "encryption": "none"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "tls",
+                "tlsSettings": {
+                    "allowInsecure": false
+                },
+                "wsSettings": {
+                    "path": "/ray"
+                }
+            }
+        },
+        {
+            "protocol": "freedom",
+            "settings": {},
+            "tag": "direct"
+        }
+    ],
+    "routing": {
+        "domainStrategy": "IPOnDemand",
+        "rules": [
+            {
+                "type": "field",
+                "inboundTag": ["fr-xtls-in"],
+                "outboundTag": "fr-xtls-out"
+            },
+            {
+                "type": "field",
+                "inboundTag": ["fr-mkcp-in"],
+                "outboundTag": "fr-mkcp-out"
+            },
+            {
+                "type": "field",
+                "inboundTag": ["frn-ws-in"],
+                "outboundTag": "frn-ws-out"
+            }
+        ]
+    }
+}
