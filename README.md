@@ -12,4 +12,4 @@
 
 # 注意点
 
-1.由于socks对UDP支持不好，故如果要设置终端代理，建议使用1081端口, 如export ALL_PROXY=socks5://127.0.0.1:1081, <br> 即配置文件中的xtls协议，而非mkcp协议 <br>
+1.由于socks对UDP支持不好，故如果要设置终端代理，建议使用1081端口, <br> 如export ALL_PROXY=socks5://127.0.0.1:1081, 即配置文件中的xtls协议，而非mkcp协议 <br>
