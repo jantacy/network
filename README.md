@@ -9,6 +9,7 @@
 2.在终端执行brew tap N4FA/xray，然后 brew install v2ray-core <br>
 3.将config.json文件放到小房子下，然后 cat ~/config.json > /usr/local/etc/xray/config.json <br>
 4.在终端执行brew services restart xray-core <br>
+5.需要同时更新下ClashX的配置，注意config.json和config.yaml的UUID都需要替换成自己的
 
 # 注意点
 
