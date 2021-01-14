@@ -3,6 +3,8 @@
 1. 直接打开raw复制即可
 2. 编辑此文件，推荐下载[sublime text](https://www.sublimetext.com/3)
 3. 想了解xray相关项目，请戳[xray](https://github.com/XTLS/Xray-core)
+4. ClashX相关下载地址，请戳[ClashX](https://github.com/yichengchen/clashX/releases) , 选择最新版即可，下载Assets下的ClashX.dmg
+
 
 # 安装xray
 
