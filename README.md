@@ -2,6 +2,7 @@
 
 1. 直接打开raw复制即可
 2. 编辑此文件，推荐下载[sublime text](https://www.sublimetext.com/3)
+3. 想了解xray相关项目，请戳[xray](https://github.com/XTLS/Xray-core)
 
 # 安装xray
 
