@@ -6,7 +6,7 @@
 # 安装xray
 
 1.若曾经安装过v2ray-core，先在终端brew uninstall v2ray-core,然后brew untab v2ray/v2ray，否则直接开始第2步 <br>
-2.在终端执行brew tap N4FA/xray，然后 brew install v2ray-core <br>
+2.在终端执行brew tap N4FA/xray，然后 brew install xray-core <br>
 3.将config.json文件放到小房子下，然后 cat ~/config.json > /usr/local/etc/xray/config.json <br>
 4.在终端执行brew services restart xray-core <br>
 5.需要同时更新下ClashX的配置，注意config.json和config.yaml的UUID都需要替换成自己的
